@@ -1,5 +1,3 @@
-console.log("starting notes.js");
-
 const fs = require('fs');
 
 let fetchNotes = () => {
@@ -31,7 +29,7 @@ let addNote = (title,body) => {
 };
 
 let getAll = () => {
-  console.log('Getting all notes')
+  return fetchNotes();
 };
 
 let getNote = (title) => {
@@ -48,6 +46,7 @@ let removeNote = (title) => {
 };
 
 let logNote = (note) => {
+debugger;
  console.log('______');
  console.log(`Title: ${note.title}`);
  console.log(`Body: ${note.body}`);

@@ -35,12 +35,18 @@ let getAll = () => {
 };
 
 let getNote = (title) => {
-  console.log('Getting note', title)
+  let notes = fetchNotes();
+  let noteToRead = notes.filter(x => x.title === title);
+  return noteToRead[0];
 }
 
 let removeNote = (title) => {
-  console.log('Removing note', title)
-}
+  let notes = fetchNotes();
+  let notesToKeep = notes.filter(x => x.title !== title);
+  saveNotes(notesToKeep);
+  return notes.length !== notesToKeep.length;
+};
+
 module.exports = {
   addNote,
   getAll,
